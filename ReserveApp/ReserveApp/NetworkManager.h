@@ -10,5 +10,7 @@
 
 @interface NetworkManager : NSObject
 +(NetworkManager *) sharedInstance;
-- (void)getFoodData;
+- (void)getFoodDataWithCompletion:(void(^)(NSArray *results))successBlock
+                          onError:(void(^)(NSError *error))errorBlock;
+
 @end

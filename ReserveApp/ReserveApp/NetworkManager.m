@@ -28,14 +28,16 @@
     return self;
 }
 
-- (void)getFoodData{
 
+- (void)getFoodDataWithCompletion:(void(^)(NSArray *results))successBlock
+                             onError:(void(^)(NSError *error))errorBlock {
     NSDictionary *parameters = @{@"format": @"json"};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager GET:@"http://reserve-media.s3.amazonaws.com/test-data.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //success
-                NSLog(@"JSON responseObject: %@ ",responseObject);
+                NSLog(@"JSON responseObject: %@ ",[responseObject valueForKey:@"food"]);
+        successBlock([responseObject valueForKey:@"food"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //fail
         NSLog(@"error getting food data");

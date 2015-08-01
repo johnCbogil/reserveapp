@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LocationService.h"
 #import "NetworkManager.h"
+#import "FoodManager.h"
 
 @interface ViewController ()
 
@@ -21,7 +22,12 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.title = @"Free Food Near You";
     //[[LocationService sharedInstance]startUpdatingLocation];
-    [[NetworkManager sharedInstance]getFoodData];
+    [[FoodManager sharedInstance]createFoodItemWithCompletion:^{
+        
+    } onError:^(NSError *error) {
+        
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {

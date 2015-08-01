@@ -34,6 +34,8 @@
 		52F26D631B6D43EF005D0684 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F26D511B6D43EF005D0684 /* UIRefreshControl+AFNetworking.m */; };
 		52F26D641B6D43EF005D0684 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F26D531B6D43EF005D0684 /* UIWebView+AFNetworking.m */; };
 		52F26D661B6D4467005D0684 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F26D651B6D4467005D0684 /* SystemConfiguration.framework */; };
+		52F26D6A1B6D5794005D0684 /* FoodItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F26D691B6D5794005D0684 /* FoodItem.m */; };
+		52F26D6D1B6D5BDA005D0684 /* FoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F26D6C1B6D5BDA005D0684 /* FoodManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,10 @@
 		52F26D531B6D43EF005D0684 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		52F26D651B6D4467005D0684 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		52F26D671B6D44DB005D0684 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+		52F26D681B6D5794005D0684 /* FoodItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodItem.h; sourceTree = "<group>"; };
+		52F26D691B6D5794005D0684 /* FoodItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodItem.m; sourceTree = "<group>"; };
+		52F26D6B1B6D5BDA005D0684 /* FoodManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodManager.h; sourceTree = "<group>"; };
+		52F26D6C1B6D5BDA005D0684 /* FoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,10 @@
 				52F26D2B1B6D3FEC005D0684 /* NetworkManager.m */,
 				52F26D271B6D39AD005D0684 /* LocationService.h */,
 				52F26D281B6D39AD005D0684 /* LocationService.m */,
+				52F26D681B6D5794005D0684 /* FoodItem.h */,
+				52F26D691B6D5794005D0684 /* FoodItem.m */,
+				52F26D6B1B6D5BDA005D0684 /* FoodManager.h */,
+				52F26D6C1B6D5BDA005D0684 /* FoodManager.m */,
 				52F26D0B1B6D384B005D0684 /* Main.storyboard */,
 				52F26D0E1B6D384B005D0684 /* Images.xcassets */,
 				52F26D101B6D384B005D0684 /* LaunchScreen.xib */,
@@ -345,6 +355,7 @@
 				52F26D591B6D43EF005D0684 /* AFURLConnectionOperation.m in Sources */,
 				52F26D541B6D43EF005D0684 /* AFHTTPRequestOperation.m in Sources */,
 				52F26D601B6D43EF005D0684 /* UIButton+AFNetworking.m in Sources */,
+				52F26D6A1B6D5794005D0684 /* FoodItem.m in Sources */,
 				52F26D571B6D43EF005D0684 /* AFNetworkReachabilityManager.m in Sources */,
 				52F26D621B6D43EF005D0684 /* UIProgressView+AFNetworking.m in Sources */,
 				52F26D5C1B6D43EF005D0684 /* AFURLSessionManager.m in Sources */,
@@ -352,6 +363,7 @@
 				52F26D2C1B6D3FEC005D0684 /* NetworkManager.m in Sources */,
 				52F26D631B6D43EF005D0684 /* UIRefreshControl+AFNetworking.m in Sources */,
 				52F26D5B1B6D43EF005D0684 /* AFURLResponseSerialization.m in Sources */,
+				52F26D6D1B6D5BDA005D0684 /* FoodManager.m in Sources */,
 				52F26D0A1B6D384B005D0684 /* ViewController.m in Sources */,
 				52F26D611B6D43EF005D0684 /* UIImageView+AFNetworking.m in Sources */,
 				52F26D071B6D384B005D0684 /* AppDelegate.m in Sources */,
