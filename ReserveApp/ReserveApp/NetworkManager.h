@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NetworkManager : NSObject
-
++(NetworkManager *) sharedInstance;
+- (void)getFoodData;
 @end
