@@ -9,6 +9,12 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *deliciosityLabel;
+@property (weak, nonatomic) IBOutlet UITextView *sidesTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *foodItemImageView;
 
 @end
 
@@ -17,7 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = self.foodItem.name;
+    self.title = self.foodItem.manufacturer;
+    self.nameLabel.text = self.foodItem.name;
+    self.distanceLabel.text = @"Distance";
+    self.dateLabel.text = @"Date added";
+    self.deliciosityLabel.text = @"Deliciosity";
+    self.sidesTextView.text = @"Sides";
+    
 }
 
 - (void)didReceiveMemoryWarning {
