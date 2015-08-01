@@ -14,6 +14,7 @@
 		52F26D0F1B6D384B005D0684 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F26D0E1B6D384B005D0684 /* Images.xcassets */; };
 		52F26D121B6D384B005D0684 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F26D101B6D384B005D0684 /* LaunchScreen.xib */; };
 		52F26D1E1B6D384B005D0684 /* ReserveAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F26D1D1B6D384B005D0684 /* ReserveAppTests.m */; };
+		52F26D291B6D39AD005D0684 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F26D281B6D39AD005D0684 /* LocationService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		52F26D171B6D384B005D0684 /* ReserveAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReserveAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F26D1C1B6D384B005D0684 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F26D1D1B6D384B005D0684 /* ReserveAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReserveAppTests.m; sourceTree = "<group>"; };
+		52F26D271B6D39AD005D0684 /* LocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
+		52F26D281B6D39AD005D0684 /* LocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				52F26D061B6D384B005D0684 /* AppDelegate.m */,
 				52F26D081B6D384B005D0684 /* ViewController.h */,
 				52F26D091B6D384B005D0684 /* ViewController.m */,
+				52F26D271B6D39AD005D0684 /* LocationService.h */,
+				52F26D281B6D39AD005D0684 /* LocationService.m */,
 				52F26D0B1B6D384B005D0684 /* Main.storyboard */,
 				52F26D0E1B6D384B005D0684 /* Images.xcassets */,
 				52F26D101B6D384B005D0684 /* LaunchScreen.xib */,
@@ -221,6 +226,7 @@
 			files = (
 				52F26D0A1B6D384B005D0684 /* ViewController.m in Sources */,
 				52F26D071B6D384B005D0684 /* AppDelegate.m in Sources */,
+				52F26D291B6D39AD005D0684 /* LocationService.m in Sources */,
 				52F26D041B6D384B005D0684 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "LocationService.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [[LocationService sharedInstance]startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning {
