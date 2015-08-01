@@ -27,6 +27,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="pU5-nN-zfG"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hOq-8D-x3g"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -38,6 +42,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IzC-dr-YgY"/>
+                    <connections>
+                        <outlet property="tableView" destination="3Xj-Gf-OKD" id="oi6-Zj-tXH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
