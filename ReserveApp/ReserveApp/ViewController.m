@@ -13,14 +13,14 @@
 #import "FoodItem.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) UIAlertController *alertController;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self createSortByActionSheet];
     self.title = @"Free Food Near You";
     //[[LocationService sharedInstance]startUpdatingLocation];
     [[FoodManager sharedInstance]createFoodItemWithCompletion:^{
@@ -28,12 +28,51 @@
     } onError:^(NSError *error) {
         
     }];
-
+    
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)createSortByActionSheet{
+    self.alertController = [UIAlertController
+                            alertControllerWithTitle:@":)"
+                            message:@"Sorty by"
+                            preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"Cancel action");
+                                   }];
+    UIAlertAction *distanceAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Distance", @"Distance action")
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"distance action");
+                                   }];
+    UIAlertAction *abcAction = [UIAlertAction
+                                     actionWithTitle:NSLocalizedString(@"Alphabetical", @"abc action")
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction *action)
+                                     {
+                                         NSLog(@"abc action");
+                                     }];
+    
+    [self.alertController addAction:cancelAction];
+    [self.alertController addAction:abcAction];
+    [self.alertController addAction:distanceAction];
+
+    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -47,12 +86,17 @@
     
     FoodItem *foodItem =  [FoodManager sharedInstance].listOfFoodItems[indexPath.row];
     cell.textLabel.text = foodItem.name;
-
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+    
+}
+- (IBAction)sortByButtonPressed:(id)sender {
+    
+    [self presentViewController:self.alertController animated:YES completion:nil];
     
 }
 @end
