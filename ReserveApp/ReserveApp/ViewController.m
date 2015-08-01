@@ -66,6 +66,10 @@
                                      handler:^(UIAlertAction *action)
                                      {
                                          NSLog(@"abc action");
+                                         
+                                         NSSortDescriptor *sortParam= [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+                                         [[FoodManager sharedInstance].listOfFoodItems sortUsingDescriptors:[NSArray arrayWithObject:sortParam]];
+                                         [self.tableView reloadData];
                                      }];
     
     [self.alertController addAction:cancelAction];

@@ -49,6 +49,10 @@
     NSLog(@"Latitude %+.6f, Longitude %+.6f\n", location.coordinate.latitude, location.coordinate.longitude);
     self.currentLocation = location;
     self.locationManager = nil;
+}
+
+- (void)getDistanceFromFoodItemLocation:(CLLocation*)foodItemLocation{
+    [self.currentLocation distanceFromLocation:foodItemLocation];
     
 }
 
