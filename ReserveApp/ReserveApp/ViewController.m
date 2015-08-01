@@ -94,7 +94,10 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    self.detailVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    self.detailVC.foodItem = [FoodManager sharedInstance].listOfFoodItems[indexPath.row];
+    [self.navigationController pushViewController:self.detailVC animated:YES];
+
     
     
 }

@@ -36,6 +36,7 @@
 		52F26D661B6D4467005D0684 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F26D651B6D4467005D0684 /* SystemConfiguration.framework */; };
 		52F26D6A1B6D5794005D0684 /* FoodItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F26D691B6D5794005D0684 /* FoodItem.m */; };
 		52F26D6D1B6D5BDA005D0684 /* FoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F26D6C1B6D5BDA005D0684 /* FoodManager.m */; };
+		52F26D701B6D6ECD005D0684 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F26D6F1B6D6ECD005D0684 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,8 @@
 		52F26D691B6D5794005D0684 /* FoodItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodItem.m; sourceTree = "<group>"; };
 		52F26D6B1B6D5BDA005D0684 /* FoodManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodManager.h; sourceTree = "<group>"; };
 		52F26D6C1B6D5BDA005D0684 /* FoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodManager.m; sourceTree = "<group>"; };
+		52F26D6E1B6D6ECD005D0684 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		52F26D6F1B6D6ECD005D0684 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 				52F26D061B6D384B005D0684 /* AppDelegate.m */,
 				52F26D081B6D384B005D0684 /* ViewController.h */,
 				52F26D091B6D384B005D0684 /* ViewController.m */,
+				52F26D6E1B6D6ECD005D0684 /* DetailViewController.h */,
+				52F26D6F1B6D6ECD005D0684 /* DetailViewController.m */,
 				52F26D2A1B6D3FEC005D0684 /* NetworkManager.h */,
 				52F26D2B1B6D3FEC005D0684 /* NetworkManager.m */,
 				52F26D271B6D39AD005D0684 /* LocationService.h */,
@@ -372,6 +377,7 @@
 				52F26D581B6D43EF005D0684 /* AFSecurityPolicy.m in Sources */,
 				52F26D641B6D43EF005D0684 /* UIWebView+AFNetworking.m in Sources */,
 				52F26D291B6D39AD005D0684 /* LocationService.m in Sources */,
+				52F26D701B6D6ECD005D0684 /* DetailViewController.m in Sources */,
 				52F26D041B6D384B005D0684 /* main.m in Sources */,
 				52F26D561B6D43EF005D0684 /* AFHTTPSessionManager.m in Sources */,
 				52F26D5E1B6D43EF005D0684 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
