@@ -14,17 +14,13 @@
     if(self != nil) {
         self.name = [data valueForKey:@"name"];
         self.imageURL = [data valueForKey:@"image"];
-        self.deliciosity = [[data valueForKey:@"deliciosity"]doubleValue];
+        self.deliciosity = (int)[[data valueForKey:@"deliciosity"]integerValue];
         self.manufacturer = [data valueForKey:@"manufacturer"];
         self.dateAdded = [[data valueForKey:@"added"]doubleValue];
         self.sides = [data valueForKey:@"sides"];
         self.latitude = [[data valueForKey:@"location"][0]doubleValue];
         self.longitude = [[data valueForKey:@"location"][1]doubleValue];
         self.location = [[CLLocation alloc]initWithLatitude:self.latitude longitude:self.longitude];
-
-        
-        
-        
         
         return self;
     }

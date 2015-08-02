@@ -27,13 +27,7 @@
     [[FoodManager sharedInstance]createFoodItemWithCompletion:^{
         [self.tableView reloadData];
     } onError:^(NSError *error) {
-        
     }];
-    
-    
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +48,7 @@
                                    {
                                        NSLog(@"Cancel action");
                                    }];
+    
     UIAlertAction *distanceAction = [UIAlertAction
                                    actionWithTitle:NSLocalizedString(@"Distance", @"Distance action")
                                    style:UIAlertActionStyleDefault
@@ -65,6 +60,7 @@
                                        [[FoodManager sharedInstance].listOfFoodItems sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
                                        [self.tableView reloadData];
                                    }];
+    
     UIAlertAction *abcAction = [UIAlertAction
                                      actionWithTitle:NSLocalizedString(@"Alphabetical", @"abc action")
                                      style:UIAlertActionStyleDefault
@@ -80,9 +76,8 @@
     [self.alertController addAction:cancelAction];
     [self.alertController addAction:abcAction];
     [self.alertController addAction:distanceAction];
-
-    
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -90,31 +85,32 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [FoodManager sharedInstance].listOfFoodItems.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
     FoodItem *foodItem =  [FoodManager sharedInstance].listOfFoodItems[indexPath.row];
     cell.textLabel.text = foodItem.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%f",foodItem.distanceFromLocation];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%f mi",foodItem.distanceFromLocation];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ mi", cell.detailTextLabel.text];
+    cell.detailTextLabel.text = [cell.detailTextLabel.text substringToIndex: MIN(5, [cell.detailTextLabel.text length])];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ mi",cell.detailTextLabel.text];
     cell.imageView.image = foodItem.image;
-
-    
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.detailVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
     self.detailVC.foodItem = [FoodManager sharedInstance].listOfFoodItems[indexPath.row];
     [self.navigationController pushViewController:self.detailVC animated:YES];
 }
-- (IBAction)sortByButtonPressed:(id)sender {
-    
-    [self presentViewController:self.alertController animated:YES completion:nil];
-    
-}
-- (IBAction)randomButtonPressed:(id)sender {
-    
-    int r = arc4random_uniform((int)[FoodManager sharedInstance].listOfFoodItems.count);
 
+- (IBAction)sortByButtonPressed:(id)sender {
+    [self presentViewController:self.alertController animated:YES completion:nil];
+}
+
+- (IBAction)randomButtonPressed:(id)sender {
+    int r = arc4random_uniform((int)[FoodManager sharedInstance].listOfFoodItems.count);
     self.detailVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
     self.detailVC.foodItem = [FoodManager sharedInstance].listOfFoodItems[r];
     [self.navigationController pushViewController:self.detailVC animated:YES];

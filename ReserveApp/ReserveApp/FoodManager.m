@@ -83,7 +83,6 @@
  
     NSLog(@"%@", foodItem.sides);
     foodItem.sides = [foodItem.sides valueForKey:@"name"];
-    
 }
 
 - (void)formatDate:(FoodItem*)foodItem{
@@ -96,9 +95,6 @@
     [timeFormatter setTimeStyle:NSDateFormatterShortStyle];
     [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     
-   // NSLog(@"%@ %@", [timeFormatter dateFromString:date], [dateFormatter dateFromString:date]);
     foodItem.dateString = [NSString stringWithFormat:@"%@, %@", [timeFormatter stringFromDate:date], [dateFormatter stringFromDate:date]];
-    
 }
-
 @end
