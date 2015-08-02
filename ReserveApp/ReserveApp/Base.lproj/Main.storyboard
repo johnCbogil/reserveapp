@@ -72,7 +72,13 @@
                             <constraint firstItem="3Xj-Gf-OKD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hkl-tr-nJt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="IzC-dr-YgY"/>
+                    <navigationItem key="navigationItem" id="IzC-dr-YgY">
+                        <barButtonItem key="rightBarButtonItem" image="randomIcon" id="1Ix-GY-muc">
+                            <connections>
+                                <action selector="randomButtonPressed:" destination="BYZ-38-t0r" id="Z4q-pO-YwU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="sortByButton" destination="98f-ND-7Nr" id="xlQ-tl-nqS"/>
                         <outlet property="tableView" destination="3Xj-Gf-OKD" id="oi6-Zj-tXH"/>
@@ -192,4 +198,7 @@
             <point key="canvasLocation" x="449" y="240"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="randomIcon" width="50" height="50"/>
+    </resources>
 </document>

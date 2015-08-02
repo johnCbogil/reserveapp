@@ -111,4 +111,13 @@
     [self presentViewController:self.alertController animated:YES completion:nil];
     
 }
+- (IBAction)randomButtonPressed:(id)sender {
+    
+    int r = arc4random_uniform((int)[FoodManager sharedInstance].listOfFoodItems.count);
+
+    self.detailVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    self.detailVC.foodItem = [FoodManager sharedInstance].listOfFoodItems[r];
+    [self.navigationController pushViewController:self.detailVC animated:YES];
+    
+}
 @end
