@@ -39,6 +39,8 @@
             FoodItem *foodItem = [[FoodItem alloc]initWithData:resultDict];
             
             [self assignDistanceFromCurrentLocation:foodItem];
+            [self formatSides:foodItem];
+            [self formatDate:foodItem];
             
             [self assignFoodItemImages:foodItem withCompletion:^{
                 [listofFoodItems addObject:foodItem];
@@ -74,7 +76,29 @@
 
 - (void)assignDistanceFromCurrentLocation:(FoodItem*)foodItem{
     
-    foodItem.distanceFromLocation =  [[LocationService sharedInstance]getDistanceFromFoodItemLocation:foodItem.location];
+    foodItem.distanceFromLocation = [[LocationService sharedInstance]getDistanceFromFoodItemLocation:foodItem.location];
+}
+
+- (void)formatSides:(FoodItem*)foodItem{
+ 
+    NSLog(@"%@", foodItem.sides);
+    foodItem.sides = [foodItem.sides valueForKey:@"name"];
+    
+}
+
+- (void)formatDate:(FoodItem*)foodItem{
+    // “10:30AM, January 5, 2015”.
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:foodItem.dateAdded];
+
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter* timeFormatter = [[NSDateFormatter alloc] init];
+
+    [timeFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+    
+   // NSLog(@"%@ %@", [timeFormatter dateFromString:date], [dateFormatter dateFromString:date]);
+    foodItem.dateString = [NSString stringWithFormat:@"%@, %@", [timeFormatter stringFromDate:date], [dateFormatter stringFromDate:date]];
+    
 }
 
 @end

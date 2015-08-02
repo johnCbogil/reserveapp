@@ -60,6 +60,10 @@
                                    handler:^(UIAlertAction *action)
                                    {
                                        NSLog(@"distance action");
+                                       
+                                       NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"distanceFromLocation" ascending:YES];
+                                       [[FoodManager sharedInstance].listOfFoodItems sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+                                       [self.tableView reloadData];
                                    }];
     UIAlertAction *abcAction = [UIAlertAction
                                      actionWithTitle:NSLocalizedString(@"Alphabetical", @"abc action")
@@ -91,6 +95,7 @@
     
     FoodItem *foodItem =  [FoodManager sharedInstance].listOfFoodItems[indexPath.row];
     cell.textLabel.text = foodItem.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%f",foodItem.distanceFromLocation];
     cell.imageView.image = foodItem.image;
 
     

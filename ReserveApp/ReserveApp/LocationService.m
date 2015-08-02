@@ -52,8 +52,7 @@
 }
 
 - (CLLocationDistance)getDistanceFromFoodItemLocation:(CLLocation*)foodItemLocation{
-    
-    CLLocationDistance tempLoc = [self.currentLocation distanceFromLocation:foodItemLocation];
+    CLLocationDistance tempLoc = [self.currentLocation distanceFromLocation:foodItemLocation]/1609.344;
     return tempLoc;
 }
 

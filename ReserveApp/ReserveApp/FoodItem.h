@@ -17,7 +17,8 @@
 @property (nonatomic, strong) NSString *manufacturer;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic) double dateAdded;
-@property (nonatomic, strong) NSDictionary *sides;
+@property (nonatomic) NSString *dateString;
+@property (nonatomic, strong) NSArray *sides;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic) CLLocationDistance distanceFromLocation;
 @property (nonatomic) CLLocationDegrees latitude;

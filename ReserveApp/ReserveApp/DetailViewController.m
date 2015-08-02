@@ -25,10 +25,10 @@
     // Do any additional setup after loading the view.
     self.title = self.foodItem.manufacturer;
     self.nameLabel.text = self.foodItem.name;
-    self.distanceLabel.text = [NSString stringWithFormat:@"%f",self.foodItem.distanceFromLocation];
-    self.dateLabel.text = [NSString stringWithFormat:@"%f", self.foodItem.dateAdded];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%f mi",self.foodItem.distanceFromLocation];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@", self.foodItem.dateString];
     self.deliciosityLabel.text = [NSString stringWithFormat:@"%f", self.foodItem.deliciosity];
-    self.sidesTextView.text = self.foodItem.sides;
+    self.sidesTextView.text = [self.foodItem.sides componentsJoinedByString:@"\n"];
     self.foodItemImageView.image = self.foodItem.image;
     
 }

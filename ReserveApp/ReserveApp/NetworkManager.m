@@ -38,7 +38,7 @@
     self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [self.manager GET:@"http://reserve-media.s3.amazonaws.com/test-data.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //success
-                NSLog(@"JSON responseObject: %@ ",[responseObject valueForKey:@"food"]);
+                //NSLog(@"JSON responseObject: %@ ",[responseObject valueForKey:@"food"]);
         successBlock([responseObject valueForKey:@"food"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //fail
@@ -57,7 +57,7 @@
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-        NSLog(@"%@", responseObject);
+        //NSLog(@"%@", responseObject);
         successBlock(responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
