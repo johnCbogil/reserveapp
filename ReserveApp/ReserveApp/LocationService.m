@@ -51,9 +51,11 @@
     self.locationManager = nil;
 }
 
-- (void)getDistanceFromFoodItemLocation:(CLLocation*)foodItemLocation{
-    [self.currentLocation distanceFromLocation:foodItemLocation];
+- (CLLocationDistance)getDistanceFromFoodItemLocation:(CLLocation*)foodItemLocation{
     
+    CLLocationDistance tempLoc = [self.currentLocation distanceFromLocation:foodItemLocation];
+    return tempLoc;
 }
+
 
 @end

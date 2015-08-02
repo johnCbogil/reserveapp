@@ -9,6 +9,7 @@
 #import "FoodManager.h"
 #import "NetworkManager.h"
 #import "FoodItem.h"
+#import "LocationService.h"
 
 @implementation FoodManager
 + (FoodManager *)sharedInstance
@@ -36,6 +37,9 @@
         NSMutableArray *listofFoodItems = [[NSMutableArray alloc]init];
         for (NSDictionary *resultDict in results) {
             FoodItem *foodItem = [[FoodItem alloc]initWithData:resultDict];
+            
+            [self assignDistanceFromCurrentLocation:foodItem];
+            
             [self assignFoodItemImages:foodItem withCompletion:^{
                 [listofFoodItems addObject:foodItem];
                 successBlock();
@@ -48,7 +52,7 @@
         successBlock();
 //        NSLog(@"%@", self.listOfFoodItems);
         for (FoodItem *item in self.listOfFoodItems) {
-            NSLog(@"%@", item.name);
+            NSLog(@"%f", item.distanceFromLocation);
         }
 
     } onError:^(NSError *error) {
@@ -66,6 +70,11 @@
     } onError:^(NSError *error) {
         errorBlock(error);
     }];
-    
 }
+
+- (void)assignDistanceFromCurrentLocation:(FoodItem*)foodItem{
+    
+    foodItem.distanceFromLocation =  [[LocationService sharedInstance]getDistanceFromFoodItemLocation:foodItem.location];
+}
+
 @end

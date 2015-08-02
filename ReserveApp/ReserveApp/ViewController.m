@@ -23,7 +23,7 @@
     [super viewDidLoad];
     [self createSortByActionSheet];
     self.title = @"Free Food Near You";
-    //[[LocationService sharedInstance]startUpdatingLocation];
+    [[LocationService sharedInstance]startUpdatingLocation];
     [[FoodManager sharedInstance]createFoodItemWithCompletion:^{
         [self.tableView reloadData];
     } onError:^(NSError *error) {

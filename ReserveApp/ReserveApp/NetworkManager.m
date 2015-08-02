@@ -66,8 +66,6 @@
     }];
     
     [operation start];
-
-    
 }
 
 @end

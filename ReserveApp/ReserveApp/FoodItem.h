@@ -12,13 +12,18 @@
 @interface FoodItem : NSObject
 - (id)initWithData:(NSDictionary *)data;
 @property (nonatomic, strong) NSString *imageURL;
-@property (nonatomic, strong) NSNumber *deliciosity;
-@property (nonatomic)CLLocation *location;
+@property (nonatomic) double deliciosity;
+@property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, strong) NSString *manufacturer;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic) NSNumber *dateAdded;
+@property (nonatomic) double dateAdded;
 @property (nonatomic, strong) NSDictionary *sides;
-@property (nonatomic, strong)UIImage *image;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic) CLLocationDistance distanceFromLocation;
+@property (nonatomic) CLLocationDegrees latitude;
+@property (nonatomic) CLLocationDegrees longitude;
+
+
 
 
 @end

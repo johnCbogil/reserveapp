@@ -15,7 +15,7 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *currentLocation;
-
+- (CLLocationDistance)getDistanceFromFoodItemLocation:(CLLocation*)foodItemLocation;
 - (void)startUpdatingLocation;
 
 @end
