@@ -49,7 +49,7 @@
 - (void)getFoodImagesFromURL:(NSString*)imageURL withCompletion:(void(^)(UIImage *results))successBlock
                           onError:(void(^)(NSError *error))errorBlock {
     
-    NSURL *url = [NSURL URLWithString:@"http://www.raywenderlich.com/wp-content/uploads/2014/01/sunny-background.png"];
+    NSURL *url = [NSURL URLWithString:imageURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];

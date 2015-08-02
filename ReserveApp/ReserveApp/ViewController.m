@@ -91,22 +91,8 @@
     
     FoodItem *foodItem =  [FoodManager sharedInstance].listOfFoodItems[indexPath.row];
     cell.textLabel.text = foodItem.name;
-    
-    
-    NSURL *url = [NSURL URLWithString:foodItem.imageURL];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-    
-    __weak UITableViewCell *weakCell = cell;
-    
-    [cell.imageView setImageWithURLRequest:request
-                          placeholderImage:placeholderImage
-                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                       
-                                       weakCell.imageView.image = image;
-                                       [weakCell setNeedsLayout];
-                                       
-                                   } failure:nil];
+    cell.imageView.image = foodItem.image;
+
     
     return cell;
 }
@@ -114,9 +100,6 @@
     self.detailVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailViewController"];
     self.detailVC.foodItem = [FoodManager sharedInstance].listOfFoodItems[indexPath.row];
     [self.navigationController pushViewController:self.detailVC animated:YES];
-
-    
-    
 }
 - (IBAction)sortByButtonPressed:(id)sender {
     
