@@ -114,7 +114,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUh-wq-TsZ">
-                                <rect key="frame" x="542" y="28" width="42" height="21"/>
+                                <rect key="frame" x="519" y="28" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -144,26 +144,35 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="locationIcon" translatesAutoresizingMaskIntoConstraints="NO" id="LB8-9r-yTW">
+                                <rect key="frame" x="569" y="31" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="IH3-gU-qnY"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OA3-yO-NBB" firstAttribute="leading" secondItem="fRo-It-Z7i" secondAttribute="leading" id="2EZ-L5-PGd"/>
-                            <constraint firstItem="IUh-wq-TsZ" firstAttribute="trailing" secondItem="a5J-b2-EzH" secondAttribute="trailingMargin" id="2cw-45-jXc"/>
                             <constraint firstItem="fRo-It-Z7i" firstAttribute="leading" secondItem="OtR-si-5i1" secondAttribute="leading" id="9tU-nP-2c5"/>
                             <constraint firstItem="OA3-yO-NBB" firstAttribute="top" secondItem="fRo-It-Z7i" secondAttribute="bottom" constant="8" symbolic="YES" id="B5B-Ah-jLm"/>
-                            <constraint firstItem="Tsi-jM-Kn2" firstAttribute="baseline" secondItem="IUh-wq-TsZ" secondAttribute="baseline" id="BID-7R-yHh"/>
                             <constraint firstItem="at4-3W-ZUn" firstAttribute="top" secondItem="OA3-yO-NBB" secondAttribute="bottom" constant="13" id="L4g-FR-sAy"/>
+                            <constraint firstItem="OA3-yO-NBB" firstAttribute="trailing" secondItem="LB8-9r-yTW" secondAttribute="trailing" id="Lsi-13-3mX"/>
+                            <constraint firstItem="LB8-9r-yTW" firstAttribute="leading" secondItem="IUh-wq-TsZ" secondAttribute="trailing" constant="8" symbolic="YES" id="MYe-8r-Xar"/>
                             <constraint firstItem="at4-3W-ZUn" firstAttribute="top" secondItem="fRo-It-Z7i" secondAttribute="bottom" constant="141" id="PX3-Rn-dnl"/>
+                            <constraint firstItem="dCR-cf-OUX" firstAttribute="top" secondItem="LB8-9r-yTW" secondAttribute="bottom" constant="11" id="QWU-uu-2EA"/>
+                            <constraint firstItem="IUh-wq-TsZ" firstAttribute="firstBaseline" secondItem="Tsi-jM-Kn2" secondAttribute="firstBaseline" id="Stn-dU-DsH"/>
                             <constraint firstItem="Tsi-jM-Kn2" firstAttribute="leading" secondItem="a5J-b2-EzH" secondAttribute="leadingMargin" constant="-5" id="TPa-GZ-qJo"/>
                             <constraint firstItem="dCR-cf-OUX" firstAttribute="top" secondItem="Tsi-jM-Kn2" secondAttribute="bottom" constant="8" symbolic="YES" id="VPO-Fy-GXA"/>
+                            <constraint firstAttribute="trailing" secondItem="IUh-wq-TsZ" secondAttribute="trailing" constant="39" id="Vcv-XG-s2H"/>
                             <constraint firstItem="fRo-It-Z7i" firstAttribute="top" secondItem="OtR-si-5i1" secondAttribute="bottom" constant="8" symbolic="YES" id="WEP-yt-ODY"/>
+                            <constraint firstItem="IUh-wq-TsZ" firstAttribute="baseline" secondItem="Tsi-jM-Kn2" secondAttribute="baseline" id="bMy-Zg-VSR"/>
                             <constraint firstItem="OtR-si-5i1" firstAttribute="top" secondItem="dCR-cf-OUX" secondAttribute="bottom" constant="8" symbolic="YES" id="e9s-1h-Ynr"/>
                             <constraint firstAttribute="trailing" secondItem="dCR-cf-OUX" secondAttribute="trailing" id="frp-gr-GPD"/>
+                            <constraint firstItem="IUh-wq-TsZ" firstAttribute="centerY" secondItem="LB8-9r-yTW" secondAttribute="centerY" id="oVK-5O-SKO"/>
                             <constraint firstItem="Tsi-jM-Kn2" firstAttribute="leading" secondItem="OtR-si-5i1" secondAttribute="leading" id="qK3-fq-KJ3"/>
                             <constraint firstItem="Tsi-jM-Kn2" firstAttribute="top" secondItem="MBG-8F-GrH" secondAttribute="bottom" constant="8" symbolic="YES" id="swg-9F-oYn"/>
-                            <constraint firstItem="OA3-yO-NBB" firstAttribute="trailing" secondItem="IUh-wq-TsZ" secondAttribute="trailing" id="uIS-Dw-PIl"/>
                             <constraint firstItem="dCR-cf-OUX" firstAttribute="leading" secondItem="a5J-b2-EzH" secondAttribute="leading" id="wrT-7C-DR6"/>
-                            <constraint firstItem="IUh-wq-TsZ" firstAttribute="firstBaseline" secondItem="Tsi-jM-Kn2" secondAttribute="firstBaseline" id="z67-sG-0DV"/>
                         </constraints>
                     </view>
                     <connections>
@@ -177,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YbT-lR-Paa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831" y="240"/>
+            <point key="canvasLocation" x="1929" y="295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="35X-Rq-0Wu">
@@ -199,6 +208,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="locationIcon" width="50" height="50"/>
         <image name="randomIcon" width="50" height="50"/>
     </resources>
 </document>

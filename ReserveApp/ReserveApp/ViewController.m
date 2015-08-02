@@ -28,6 +28,21 @@
         [self.tableView reloadData];
     } onError:^(NSError *error) {
     }];
+    
+    [[LocationService sharedInstance] addObserver:self forKeyPath:@"currentLocation" options:NSKeyValueObservingOptionNew context:nil];
+
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object  change:(NSDictionary *)change context:(void *)context
+{
+    if([keyPath isEqualToString:@"currentLocation"]) {
+        [[FoodManager sharedInstance]createFoodItemWithCompletion:^{
+            [self.tableView reloadData];
+        } onError:^(NSError *error) {
+            
+        }
+         ];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,8 +52,8 @@
 
 - (void)createSortByActionSheet{
     self.alertController = [UIAlertController
-                            alertControllerWithTitle:@":)"
-                            message:@"Sorty by"
+                            alertControllerWithTitle:@"Sort your options"
+                            message:@":)"
                             preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *cancelAction = [UIAlertAction
@@ -50,28 +65,33 @@
                                    }];
     
     UIAlertAction *distanceAction = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Distance", @"Distance action")
-                                   style:UIAlertActionStyleDefault
-                                   handler:^(UIAlertAction *action)
-                                   {
-                                       NSLog(@"distance action");
-                                       
-                                       NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"distanceFromLocation" ascending:YES];
-                                       [[FoodManager sharedInstance].listOfFoodItems sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-                                       [self.tableView reloadData];
-                                   }];
-    
-    UIAlertAction *abcAction = [UIAlertAction
-                                     actionWithTitle:NSLocalizedString(@"Alphabetical", @"abc action")
+                                     actionWithTitle:NSLocalizedString(@"Nearest to you", @"Distance action")
                                      style:UIAlertActionStyleDefault
                                      handler:^(UIAlertAction *action)
                                      {
-                                         NSLog(@"abc action");
+                                         NSLog(@"distance action");
                                          
-                                         NSSortDescriptor *sortParam= [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-                                         [[FoodManager sharedInstance].listOfFoodItems sortUsingDescriptors:[NSArray arrayWithObject:sortParam]];
+                                         [[FoodManager sharedInstance]createFoodItemWithCompletion:^{
+                                             NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"distanceFromLocation" ascending:YES];
+                                             [[FoodManager sharedInstance].listOfFoodItems sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+                                             [self.tableView reloadData];
+                                         } onError:^(NSError *error) {
+                                             
+                                         }];
                                          [self.tableView reloadData];
                                      }];
+    
+    UIAlertAction *abcAction = [UIAlertAction
+                                actionWithTitle:NSLocalizedString(@"Alphabetical", @"abc action")
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction *action)
+                                {
+                                    NSLog(@"abc action");
+                                    
+                                    NSSortDescriptor *sortParam= [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+                                    [[FoodManager sharedInstance].listOfFoodItems sortUsingDescriptors:[NSArray arrayWithObject:sortParam]];
+                                    [self.tableView reloadData];
+                                }];
     
     [self.alertController addAction:cancelAction];
     [self.alertController addAction:abcAction];
