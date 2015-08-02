@@ -36,9 +36,15 @@
         NSMutableArray *listofFoodItems = [[NSMutableArray alloc]init];
         for (NSDictionary *resultDict in results) {
             FoodItem *foodItem = [[FoodItem alloc]initWithData:resultDict];
-            [listofFoodItems addObject:foodItem];
-            self.listOfFoodItems = listofFoodItems;
+            [self assignFoodItemImages:foodItem withCompletion:^{
+                [listofFoodItems addObject:foodItem];
+                successBlock();
+            } onError:^(NSError *error) {
+                errorBlock(error);
+            }];
         }
+        self.listOfFoodItems = listofFoodItems;
+
         successBlock();
 //        NSLog(@"%@", self.listOfFoodItems);
         for (FoodItem *item in self.listOfFoodItems) {
@@ -48,5 +54,18 @@
     } onError:^(NSError *error) {
         
     }];
+}
+
+- (void)assignFoodItemImages:(FoodItem*)foodItem withCompletion:(void(^)(void))successBlock
+                     onError:(void(^)(NSError *error))errorBlock {
+    
+    [[NetworkManager sharedInstance]getFoodImagesFromURL:foodItem.imageURL withCompletion:^(UIImage *results) {
+        successBlock();
+        foodItem.image = results;
+
+    } onError:^(NSError *error) {
+        errorBlock(error);
+    }];
+    
 }
 @end

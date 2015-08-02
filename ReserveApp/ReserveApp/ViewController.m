@@ -11,6 +11,7 @@
 #import "NetworkManager.h"
 #import "FoodManager.h"
 #import "FoodItem.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) UIAlertController *alertController;
@@ -90,6 +91,22 @@
     
     FoodItem *foodItem =  [FoodManager sharedInstance].listOfFoodItems[indexPath.row];
     cell.textLabel.text = foodItem.name;
+    
+    
+    NSURL *url = [NSURL URLWithString:foodItem.imageURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    
+    __weak UITableViewCell *weakCell = cell;
+    
+    [cell.imageView setImageWithURLRequest:request
+                          placeholderImage:placeholderImage
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       
+                                       weakCell.imageView.image = image;
+                                       [weakCell setNeedsLayout];
+                                       
+                                   } failure:nil];
     
     return cell;
 }

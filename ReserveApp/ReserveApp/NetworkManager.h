@@ -12,5 +12,8 @@
 +(NetworkManager *) sharedInstance;
 - (void)getFoodDataWithCompletion:(void(^)(NSArray *results))successBlock
                           onError:(void(^)(NSError *error))errorBlock;
+- (void)getFoodImagesFromURL:(NSString*)imageURL withCompletion:(void(^)(UIImage *results))successBlock
+                     onError:(void(^)(NSError *error))errorBlock;
+@property (nonatomic, strong)AFHTTPRequestOperationManager *manager;
 
 @end

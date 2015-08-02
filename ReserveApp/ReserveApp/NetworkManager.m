@@ -8,6 +8,8 @@
 //  http://reserve-media.s3.amazonaws.com/test-data.json
 
 #import "NetworkManager.h"
+#import "UIImageView+AFNetworking.h"
+
 
 @implementation NetworkManager
 +(NetworkManager *) sharedInstance
@@ -23,7 +25,8 @@
 - (id)init {
     self = [super init];
     if(self != nil) {
-        
+        self.manager = [AFHTTPRequestOperationManager manager];
+
     }
     return self;
 }
@@ -32,9 +35,8 @@
 - (void)getFoodDataWithCompletion:(void(^)(NSArray *results))successBlock
                              onError:(void(^)(NSError *error))errorBlock {
     NSDictionary *parameters = @{@"format": @"json"};
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:@"http://reserve-media.s3.amazonaws.com/test-data.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [self.manager GET:@"http://reserve-media.s3.amazonaws.com/test-data.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //success
                 NSLog(@"JSON responseObject: %@ ",[responseObject valueForKey:@"food"]);
         successBlock([responseObject valueForKey:@"food"]);
@@ -42,6 +44,30 @@
         //fail
         NSLog(@"error getting food data");
     }];
-
 }
+
+- (void)getFoodImagesFromURL:(NSString*)imageURL withCompletion:(void(^)(UIImage *results))successBlock
+                          onError:(void(^)(NSError *error))errorBlock {
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.raywenderlich.com/wp-content/uploads/2014/01/sunny-background.png"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFImageResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        NSLog(@"%@", responseObject);
+        successBlock(responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"Error: %@", error);
+    }];
+    
+    [operation start];
+
+    
+}
+
 @end
