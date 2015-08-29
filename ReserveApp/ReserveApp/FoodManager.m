@@ -58,7 +58,7 @@
         }
 
     } onError:^(NSError *error) {
-        
+        [error localizedDescription];
     }];
 }
 

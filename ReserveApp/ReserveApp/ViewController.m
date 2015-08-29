@@ -27,6 +27,7 @@
     [[FoodManager sharedInstance]createFoodItemWithCompletion:^{
         [self.tableView reloadData];
     } onError:^(NSError *error) {
+        [error localizedDescription];
     }];
     
     [[LocationService sharedInstance] addObserver:self forKeyPath:@"currentLocation" options:NSKeyValueObservingOptionNew context:nil];
@@ -38,7 +39,7 @@
         [[FoodManager sharedInstance]createFoodItemWithCompletion:^{
             [self.tableView reloadData];
         } onError:^(NSError *error) {
-            
+            [error localizedDescription];
         }
          ];
     }
@@ -75,7 +76,7 @@
                                              [[FoodManager sharedInstance].listOfFoodItems sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
                                              [self.tableView reloadData];
                                          } onError:^(NSError *error) {
-                                             
+                                             [error localizedDescription];
                                          }];
                                          [self.tableView reloadData];
                                      }];

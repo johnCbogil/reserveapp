@@ -42,6 +42,7 @@
         successBlock([responseObject valueForKey:@"food"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //fail
+        [error localizedDescription];
         NSLog(@"error getting food data");
     }];
 }
@@ -61,7 +62,7 @@
         successBlock(responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        [error localizedDescription];
         NSLog(@"Error: %@", error);
     }];
     
